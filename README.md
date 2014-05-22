@@ -12,9 +12,7 @@ We code and play [StarCraft](http://us.battle.net/sc2/en/).
 ```
 
 `GITHUB_HANDLE` is your GitHub handle.
-`BATTLENET_ID` is the ID of your Battle.net profile ID,
-if your character url on the website is http://us.battle.net/sc2/en/profile/999000/1/DayNine/,
-your `BATTLENET_ID` is 999000 and your `BATTLENET_NAME` is DayNine.
+`BATTLENET_ID` is the ID of your Battle.net profile and `BATTLENET_NAME` is your name. For example, if your character URL on the website is http://us.battle.net/sc2/en/profile/999000/1/DayNine/, your `BATTLENET_ID` is 999000 and your `BATTLENET_NAME` is DayNine.
 
 * Create a pull request
 * Rock & roll
