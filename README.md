@@ -1,0 +1,16 @@
+# ACL StarCrafter
+
+We code and play [StarCraft](http://us.battle.net/sc2/en/).
+
+# How to add myself?
+
+Add the following snippet to `index.html`:
+
+```html
+<span data-github-handle="GITHUB_HANDLE" data-battlenet-id="BATTLENET_ID" data-battlenet-name="BATTLENET_NAME"></span>
+```
+
+`GITHUB_HANDLE` is your GitHub handle.
+`BATTLENET_ID` is the ID of your Battle.net profile ID,
+if your character url on the website is http://us.battle.net/sc2/en/profile/999000/1/DayNine/,
+your `BATTLENET_ID` is 999000 and your `BATTLENET_NAME` is DayNine.

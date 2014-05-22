@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+  <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <title> {{ page.title }} </title>
+</head>
+
+<body>
+  <header>
+    <div class="inner">
+      <h1> {{ site.name }} </h1>
+      <h2>We Code and Play StarCraft</h2>
+    </div>
+  </header>
+
+  <div id="content-wrapper">
+    <div class="inner clearfix">
+      <section id="main-content">
+
+        {{ content }}
+
+      </section>
+    </div>
+  </div>
+
+</body>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $.each($("#players").children(), function(index, value) {
+    var $value = $(value);
+    var gh = $value.attr("data-github-handle");
+    var bnid = $value.attr("data-battlenet-id");
+    var bnname = $value.attr("data-battlenet-name");
+
+    var html = "<span class='player'>"
+
+    var gh_url = "https://api.github.com/users/" + gh;
+    $.get(gh_url, function(gh_data) {
+      html += "<a href='" + gh_data.html_url + "'><img src='" + gh_data.avatar_url + "'></img></a>";
+
+      var sc_url ="https://us.battle.net/api/sc2/profile/" + bnid + "/1/" + bnname + "/"
+      $.ajax({
+        url: sc_url,
+        crossDomain: true,
+        dataType: "jsonp",
+        success: function(sc_data) {
+          html += ("<p>" + sc_data.career.primaryRace + "</p>");
+          html += "</span>";
+          $value.append(html);
+        }
+      });
+    });
+  });
+});
+</script>
+</html>
